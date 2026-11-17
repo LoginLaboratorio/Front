@@ -1,12 +1,12 @@
 "use client";
 
-// app/page.jsx  →  ruta "/"
+// app/page.tsx  →  ruta "/"
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Snowfall from "react-snowfall";
 import gsap from "gsap";
 import { Bricolage_Grotesque, Figtree } from "next/font/google";
-import AuthCards from "@/components/AuthCards";
+import AuthCards from "@/Components/AuthCards";
 import { getSession } from "@/lib/api";
 
 const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-display" });
@@ -14,8 +14,8 @@ const body = Figtree({ subsets: ["latin"], variable: "--font-body" });
 
 export default function HomePage() {
   const router = useRouter();
-  const rootRef = useRef(null);
-  const bgRef = useRef(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
 
   // Si ya hay sesión (cookie válida), saltar directo al perfil
   useEffect(() => {
@@ -54,7 +54,7 @@ export default function HomePage() {
       <div
         ref={bgRef}
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/invierno.jpg')" }}
+        style={{ backgroundImage: "url('/noche.png')" }}
       />
       {/* Velo suave para que las tarjetas y el texto se lean bien */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#23394d]/35 via-[#7fa8c9]/10 to-[#eaf2f8]/40" />
